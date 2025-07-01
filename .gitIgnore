@@ -1,3 +1,3 @@
-node_modules
-.branchy
-dist
+node_modules/
+.branchy/
+dist/

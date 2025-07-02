@@ -1,5 +1,5 @@
-import { initRepo } from './init';
-import { addFile } from './add';
+import { initRepo } from './commands/init';
+import { addFile } from './commands/add';
 
 const [command, arg] = process.argv.slice(2);
 

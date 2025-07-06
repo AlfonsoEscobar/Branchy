@@ -1,23 +1,36 @@
 import { initRepo } from './commands/init';
-import { addFile } from './commands/add';
+import { addFile, addAll } from './commands/add';
 import { commit } from './commands/commit';
 
-const [command, arg] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const command = args[0];
+const commandArgs = args.slice(1); // Esto ya depende del comando
 
 switch (command) {
     case 'init':
         initRepo();
         break;
+
     case 'add':
-        if(!arg) {
+        const target = commandArgs[0];
+        if(!target) {
             console.log('Uso; branchy add <archivo>')
+        } else if (target === '.') {
+            addAll();
         }else{
-            addFile(arg);
+            addFile(target);
         }
         break;
+
     case 'commit':
-        const comment = '';
-        commit(comment);
+        const messageIndex = commandArgs.indexOf('-m');
+        if(messageIndex === -1 || !commandArgs[messageIndex + 1]) {
+            console.log('Uso: branchy commit -m "<mensaje>"');
+            process.exit(1);
+        }else{
+            const message = commandArgs.slice(messageIndex + 1).join(' ');
+            commit(message);
+        }
         break;
     default:
         console.log('Comando no válido');

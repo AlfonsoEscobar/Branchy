@@ -21,7 +21,6 @@ function getHeadCommitHash(): string | null {
     const branch = getCurrentBranch();
     const branchPath = path.join(BRANCHY_DIR, 'refs', 'heads', branch);
 
-
     return null;
 }
 
@@ -32,7 +31,8 @@ export function commit(comment: string): void {
     }
 
     const index: Record<string, string> = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf-8'));
-
+    const parent = getHeadCommitHash();
+    
     const commit = {
         comment,
         timeStamp: new Date().toISOString(),
@@ -40,7 +40,18 @@ export function commit(comment: string): void {
         files: index
     };
 
+    const commitString = JSON.stringify(commit);
+    const commitHash = sha1(commitString);
 
+    fs.writeFileSync(path.join(OBJECTS_DIR, commitHash), commitString); 
 
-    console.log('commit');
+    // Actualizar la rama actual
+    const branch = getCurrentBranch();
+    const branchPath = path.join(BRANCHY_DIR, 'refs', 'heads', branch);
+    fs.writeFileSync(branchPath, commitHash);
+
+    // Vaciar el index
+    fs.unlinkSync(INDEX_FILE);
+
+    console.log(`Commit realizado: ${commitHash.slice(0, 7)} - "${comment}"`);
 }

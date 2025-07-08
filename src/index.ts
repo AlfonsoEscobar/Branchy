@@ -1,6 +1,7 @@
 import { initRepo } from './commands/init';
 import { addFile, addAll } from './commands/add';
 import { commit } from './commands/commit';
+import { status } from './commands/status';
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -32,6 +33,11 @@ switch (command) {
             commit(message);
         }
         break;
+    
+    case 'status':
+        status();
+        break;
+
     default:
         console.log('Comando no válido');
 }

@@ -2,6 +2,8 @@ import { initRepo } from './commands/init';
 import { addFile, addAll } from './commands/add';
 import { commit } from './commands/commit';
 import { status } from './commands/status';
+import { resetFile } from './commands/reset';
+
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -37,6 +39,17 @@ switch (command) {
     case 'status':
         status();
         break;
+    
+    case 'reset':
+        const rFile = commandArgs[0];
+        if(!rFile) {
+            console.log('Uso: branchy reset <archivo>');
+            process.exit(1);
+        }else{
+            resetFile(rFile);
+        }
+        break;
+    
 
     default:
         console.log('Comando no válido');

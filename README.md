@@ -31,7 +31,7 @@ Ideal como proyecto educativo o herramienta de versionado ligera.
 
 📦 Instalación y configuración
 ```bash
-git clone https://github.com/tu-usuario/branchy.git
+git clone https://github.com/AlfonsoEscobar/branchy.git
 cd branchy
 npm install
 npx tsc

@@ -41,19 +41,18 @@ npx tsc
 
 🛠️ Comandos disponibles
 ```bash
-branchy init
+node dist/index.js init
 ```
 Inicializa un nuevo repositorio Branchy en el directorio actual.
 
 ```bash
-node dist/index.js init
-branchy dist/index.js add <archivo>
+node dist/index.js add archivo.js
+node dist/index.js add .
 ```
 Añade un archivo al staging area. Su contenido se guarda como un blob usando SHA-1.
 
 ```bash
-node dist/index.js add archivo.js
-branchy dist/index.js commit -m "mensaje"
+node dist/index.js commit -m "Mensaje de commit"
 ```
 Crea un nuevo commit con todos los archivos añadidos en el staging.
 
@@ -64,41 +63,41 @@ node dist/index.js commit -m "Mensaje de commit"
 
 🧪 Ejemplo completo
 
-```bash
 # Inicializar Branchy
+```bash
 node dist/index.js init
 ```
 
 # Crear archivo
+```bash
 echo "console.log('Hola mundo');" > hola.js
+```
 
 # Añadir al staging
+```bash
 node dist/index.js add hola.js
+```
 
 # Commit
+```bash
 node dist/index.js commit -m "Primer commit"
+```
 
 ---
 
 🧠 ¿Por qué Branchy?
  - Escrito desde cero en TypeScript
-
  - Enfocado a comprender cómo funciona Git internamente
-
  - Útil como práctica de estructuras de datos, persistencia, CLI tools, y SHA hashing
-
  - Pensado para escalar: ramas, merges, logs visuales, reset...
+
 
 🚧 Roadmap (próximas funcionalidades)
   - branchy log: historial de commits
-
   - branchy reset <hash>: volver a un commit anterior
-
   - branchy branch <nombre>: gestión de ramas
-
   - branchy checkout <branch|hash>: cambiar entre ramas o commits
-
- - Interfaz gráfica web con visualización del grafo de commits
+  - Interfaz gráfica web con visualización del grafo de commits
 
 🧑‍💻 Autor
 Desarrollado por @AlfonsoEscobar como proyecto formativo y personal.

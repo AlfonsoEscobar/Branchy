@@ -83,6 +83,12 @@ node dist/index.js add hola.js
 node dist/index.js commit -m "Primer commit"
 ```
 
+# Reset
+Quita el archivo hola.js del staging (deja de tener seguimiento).
+```bash
+node dist/index.js reset hola.js
+```
+
 ---
 
 🧠 ¿Por qué Branchy?
@@ -94,7 +100,6 @@ node dist/index.js commit -m "Primer commit"
 
 🚧 Roadmap (próximas funcionalidades)
   - branchy log: historial de commits
-  - branchy reset <hash>: volver a un commit anterior
   - branchy branch <nombre>: gestión de ramas
   - branchy checkout <branch|hash>: cambiar entre ramas o commits
   - Interfaz gráfica web con visualización del grafo de commits

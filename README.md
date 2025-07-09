@@ -56,9 +56,6 @@ node dist/index.js commit -m "Mensaje de commit"
 ```
 Crea un nuevo commit con todos los archivos añadidos en el staging.
 
-```bash
-node dist/index.js commit -m "Mensaje de commit"
-```
 ---
 
 🧪 Ejemplo completo

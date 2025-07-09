@@ -43,7 +43,7 @@ export function commit(comment: string): void {
     const commitString = JSON.stringify(commit);
     const commitHash = sha1(commitString);
 
-    fs.writeFileSync(path.join(OBJECTS_DIR, commitHash), commitString); 
+    fs.writeFileSync(path.join(OBJECTS_DIR, 'commits', commitHash), commitString); 
 
     // Actualizar la rama actual
     const branch = getCurrentBranch();

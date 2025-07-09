@@ -10,7 +10,7 @@ export function initRepo(): void {
     }
 
     //crear carpetas
-    fs.mkdirSync(path.join(BRANCHY_DIR, 'objects'), {recursive: true});
+    fs.mkdirSync(path.join(BRANCHY_DIR, 'objects', 'commits'), {recursive: true});
     fs.mkdirSync(path.join(BRANCHY_DIR, 'refs', 'heads'), {recursive: true});
 
     //crear ramas por defecto main

@@ -3,6 +3,7 @@ import { addFile, addAll } from './commands/add';
 import { commit } from './commands/commit';
 import { status } from './commands/status';
 import { resetFile } from './commands/reset';
+import { logCommits } from './commands/logCommits';
 
 
 const args = process.argv.slice(2);
@@ -50,6 +51,9 @@ switch (command) {
         }
         break;
     
+    case 'log':
+        logCommits();
+        break;
 
     default:
         console.log('Comando no válido');
